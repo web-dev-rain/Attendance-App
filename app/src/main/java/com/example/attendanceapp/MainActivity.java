@@ -24,7 +24,8 @@ FloatingActionButton fab;
     private void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = LayoutInflater.from(this).inflate(R.layout.class_dialog, null);
-
         builder.setView(view);
+
+        builder.create().show();
     }
 }
