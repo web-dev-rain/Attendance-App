@@ -61,5 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addClass() {
+        String className = class_edt.getText().toString();
+        String subjectName = subject_edt.getText().toString();
+        classItems.add(new ClassItem(className, subjectName));
     }
 }
