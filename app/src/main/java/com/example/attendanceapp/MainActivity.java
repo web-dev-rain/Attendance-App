@@ -42,14 +42,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDialog() {
-
-
+        MyDialog dialog = new MyDialog();
+        dialog.show(getSupportFragmentManager(), MyDialog.CLASS_ADD_DIALOG);
+        dialog.setListener((className, subjectName)-> addClass(className, subjectName));
 
     }
 
-    private void addClass() {
-        String className = class_edt.getText().toString();
-        String subjectName = subject_edt.getText().toString();
+    private void addClass(String className, String subjectName) {
         classItems.add(new ClassItem(className, subjectName));
         classAdapter.notifyDataSetChanged();
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,8 +37,8 @@ public class MyDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog, null);
         builder.setView(view);
-        AlertDialog dialog = builder.create();
-        dialog.show();
+
+        TextView title = view.findViewById(R.id.titleDialog);
 
         EditText class_edt = view.findViewById(R.id.est01);
         EditText subject_edt = view.findViewById(R.id.edt02);
@@ -52,6 +53,7 @@ public class MyDialog extends DialogFragment {
             listener.onClick(className, subName);
             dismiss();
         });
-        return null;
+
+        return builder.create();
     }
 }
