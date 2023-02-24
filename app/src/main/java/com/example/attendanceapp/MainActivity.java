@@ -42,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void gotoItemActivity(int position) {
         Intent intent = new Intent(this, StudentActivity.class);
+
+        intent.putExtra("className", classItems.get(position).getClassName());
+        intent.putExtra("subjectName", classItems.get(position).getSubjectName());
+        intent.putExtra("position", position);
+        startActivity(intent);
     }
 
     private void showDialog() {
         MyDialog dialog = new MyDialog();
         dialog.show(getSupportFragmentManager(), MyDialog.CLASS_ADD_DIALOG);
-        dialog.setListener((className, subjectName)-> addClass(className, subjectName));
+        dialog.setListener((className, subjectName) -> addClass(className, subjectName));
 
     }
 
