@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.class_dialog, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog, null);
         builder.setView(view);
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        class_edt = view.findViewById(R.id.class_edt);
-        subject_edt = view.findViewById(R.id.subject_edt);
+        class_edt = view.findViewById(R.id.est01);
+        subject_edt = view.findViewById(R.id.edt02);
 
         Button cancel = view.findViewById(R.id.cancel_btn);
         Button add = view.findViewById(R.id.add_btn);
