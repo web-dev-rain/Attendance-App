@@ -16,7 +16,7 @@ import androidx.fragment.app.DialogFragment;
 public class MyDialog extends DialogFragment {
     public static final String CLASS_ADD_DIALOG = "addClass";
 
-    OnClickListener listener;
+    private OnClickListener listener;
     public interface OnClickListener{
         void onClick(String text1, String text2);
     }
@@ -39,10 +39,13 @@ public class MyDialog extends DialogFragment {
         builder.setView(view);
 
         TextView title = view.findViewById(R.id.titleDialog);
+        title.setText("Add New Class");
 
         EditText class_edt = view.findViewById(R.id.est01);
         EditText subject_edt = view.findViewById(R.id.edt02);
 
+        class_edt.setHint("Class Name");
+        subject_edt.setHint("Subject Name");
         Button cancel = view.findViewById(R.id.cancel_btn);
         Button add = view.findViewById(R.id.add_btn);
 

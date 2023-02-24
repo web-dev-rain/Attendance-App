@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<ClassItem> classItems = new ArrayList<>();
 
-    EditText class_edt;
-    EditText subject_edt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
