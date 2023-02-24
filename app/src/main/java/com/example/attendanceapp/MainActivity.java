@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-
+        recyclerView.setLayoutManager(layoutManager);
         classAdapter = new ClassAdapter(this, classItems);
         recyclerView.setAdapter(classAdapter);
     }
@@ -55,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
         Button add = view.findViewById(R.id.add_btn);
 
         cancel.setOnClickListener(v -> dialog.dismiss());
-        add.setOnClickListener(v-> addClass());
+        add.setOnClickListener(v -> {
+            addClass();
+            dialog.dismiss();
+        });
 
 
     }
@@ -64,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
         String className = class_edt.getText().toString();
         String subjectName = subject_edt.getText().toString();
         classItems.add(new ClassItem(className, subjectName));
+        classAdapter.notifyDataSetChanged();
     }
 }
