@@ -38,6 +38,7 @@ class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder> {
             super(itemView);
             className = itemView.findViewById(R.id.class_tv);
             subjectName = itemView.findViewById(R.id.subject_tv);
+            itemView.setOnClickListener(v->onItemClickListener.onClick(getAdapterPosition()));
         }
     }
 
