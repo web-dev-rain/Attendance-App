@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder> {
-    ArrayList<ClassItem> classItems;
+class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
+    ArrayList<StudentItem> studentItems;
     Context context;
 
     private OnItemClickListener onItemClickListener;
@@ -25,38 +25,41 @@ class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder> {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public ClassAdapter(Context context, ArrayList<ClassItem> classItems) {
-        this.classItems = classItems;
+    public StudentAdapter(Context context, ArrayList<StudentItem> studentItems) {
+        this.studentItems = studentItems;
         this.context = context;
     }
 
-    public static class ClassViewHolder extends RecyclerView.ViewHolder {
-        TextView className;
-        TextView subjectName;
+    public static class StudentViewHolder extends RecyclerView.ViewHolder {
+        TextView roll;
+        TextView name;
+        TextView status;
 
-        public ClassViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
+        public StudentViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
-            className = itemView.findViewById(R.id.class_tv);
-            subjectName = itemView.findViewById(R.id.subject_tv);
+            roll = itemView.findViewById(R.id.roll);
+            name = itemView.findViewById(R.id.name);
+            status = itemView.findViewById(R.id.status);
             itemView.setOnClickListener(v->onItemClickListener.onClick(getAdapterPosition()));
         }
     }
 
     @NonNull
     @Override
-    public ClassViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.class_item, parent, false);
-        return new ClassViewHolder(itemView, onItemClickListener);
+    public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.student_item, parent, false);
+        return new StudentViewHolder(itemView, onItemClickListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClassViewHolder holder, int position) {
-        holder.className.setText(classItems.get(position).getClassName());
-        holder.subjectName.setText(classItems.get(position).getSubjectName());
+    public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
+        holder.roll.setText(studentItems.get(position).getRoll());
+        holder.name.setText(studentItems.get(position).getName());
+        holder.status.setText(studentItems.get(position).getStatus());
     }
 
     @Override
     public int getItemCount() {
-        return classItems.size();
+        return studentItems.size();
     }
 }
